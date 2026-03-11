@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin Reference | Engineer Assessment</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0a0a; color: #e0e0e0; font-family: 'Noto Sans JP', sans-serif; line-height: 1.8; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
+  h1 { font-family: 'Cormorant Garamond', serif; font-size: 36px; color: #f0f0f0; text-align: center; margin-bottom: 8px; }
+  .subtitle { font-family: 'DM Mono', monospace; font-size: 11px; color: #e8c547; letter-spacing: 6px; text-align: center; margin-bottom: 48px; }
+  h2 { font-family: 'DM Mono', monospace; font-size: 13px; color: #e8c547; letter-spacing: 3px; margin: 48px 0 24px; padding-bottom: 8px; border-bottom: 1px solid #1a1a1a; }
+  h3 { font-size: 16px; color: #f0f0f0; margin: 24px 0 12px; }
+
+  /* Nav */
+  .nav { display: flex; gap: 12px; justify-content: center; margin-bottom: 40px; flex-wrap: wrap; }
+  .nav a { font-family: 'DM Mono', monospace; font-size: 12px; color: #7a7a7a; text-decoration: none; padding: 8px 16px; border: 1px solid #1a1a1a; border-radius: 6px; transition: all 0.2s; }
+  .nav a:hover, .nav a.active { color: #e8c547; border-color: #e8c54744; background: #e8c54711; }
+
+  /* Section toggle */
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* Type grid */
+  .type-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+  .type-card { background: #0f0f0f; border: 1px solid #1a1a1a; border-radius: 12px; padding: 20px; text-align: center; transition: border-color 0.2s; }
+  .type-card:hover { border-color: #e8c54744; }
+  .type-card img { width: 120px; height: 120px; margin-bottom: 12px; }
+  .type-code { font-family: 'DM Mono', monospace; font-size: 20px; color: #e8c547; letter-spacing: 3px; margin-bottom: 4px; }
+  .type-name { font-size: 14px; color: #c0c0c0; margin-bottom: 8px; }
+  .type-axes { font-family: 'DM Mono', monospace; font-size: 10px; color: #5a5a5a; }
+
+  /* Axis detail in type card */
+  .axis-detail { text-align: left; margin-top: 12px; padding-top: 12px; border-top: 1px solid #1a1a1a; }
+  .axis-row { display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 4px; }
+  .axis-label { color: #7a7a7a; }
+  .axis-value { font-family: 'DM Mono', monospace; color: #e8c547; }
+
+  /* Questions */
+  .q-section { margin-bottom: 32px; }
+  .q-section-title { font-size: 14px; font-weight: 600; color: #e8c547; margin-bottom: 4px; }
+  .q-section-desc { font-size: 12px; color: #5a5a5a; margin-bottom: 16px; }
+  .q-card { background: #0f0f0f; border: 1px solid #1a1a1a; border-radius: 10px; padding: 16px 20px; margin-bottom: 10px; }
+  .q-id { font-family: 'DM Mono', monospace; font-size: 10px; color: #5a5a5a; margin-bottom: 4px; }
+  .q-text { font-size: 14px; color: #e0e0e0; margin-bottom: 8px; }
+  .q-type { font-family: 'DM Mono', monospace; font-size: 10px; color: #47c5e8; display: inline-block; padding: 2px 8px; background: #47c5e811; border-radius: 4px; margin-bottom: 8px; }
+  .q-axis { font-family: 'DM Mono', monospace; font-size: 10px; color: #c547e8; display: inline-block; padding: 2px 8px; background: #c547e811; border-radius: 4px; margin-left: 6px; }
+  .q-option { font-size: 13px; color: #a0a0a0; padding: 4px 0 4px 16px; position: relative; }
+  .q-option::before { content: ''; position: absolute; left: 0; top: 12px; width: 6px; height: 6px; border-radius: 50%; background: #2a2a2a; }
+  .q-labels { display: flex; justify-content: space-between; font-size: 12px; color: #7a7a7a; margin-top: 4px; }
+
+  /* Scoring */
+  .scoring-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .scoring-table th { text-align: left; padding: 10px 12px; background: #0f0f0f; color: #e8c547; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 1px; border-bottom: 1px solid #1a1a1a; }
+  .scoring-table td { padding: 8px 12px; border-bottom: 1px solid #0f0f0f; color: #b0b0b0; }
+  .scoring-table tr:hover td { background: #0f0f0f; }
+  code { font-family: 'DM Mono', monospace; font-size: 12px; color: #47e8a0; background: #47e8a011; padding: 1px 6px; border-radius: 3px; }
+
+  /* Big Five mapping */
+  .bf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(480px, 1fr)); gap: 16px; }
+  .bf-card { background: #0f0f0f; border: 1px solid #1a1a1a; border-radius: 10px; padding: 20px; }
+  .bf-factor { font-family: 'DM Mono', monospace; font-size: 11px; color: #c547e8; letter-spacing: 1px; margin-bottom: 4px; }
+  .bf-axis { font-size: 15px; color: #f0f0f0; font-weight: 600; margin-bottom: 12px; }
+  .bf-range { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 8px; }
+  .bf-low { color: #47c5e8; }
+  .bf-high { color: #e8c547; }
+  .bf-desc { font-size: 12px; color: #7a7a7a; line-height: 1.7; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="subtitle">ADMIN REFERENCE</div>
+  <h1>Engineer Assessment 管理リファレンス</h1>
+
+  <div class="nav">
+    <a href="#" data-tab="types" class="active">16 TYPES</a>
+    <a href="#" data-tab="questions">QUESTIONS</a>
+    <a href="#" data-tab="scoring">SCORING</a>
+    <a href="#" data-tab="bigfive">BIG FIVE</a>
+  </div>
+
+  <!-- ============ 16 TYPES ============ -->
+  <div class="section active" id="sec-types">
+    <h2>16 TYPES OVERVIEW</h2>
+    <p style="font-size:13px;color:#7a7a7a;margin-bottom:24px;">4軸（D/T × B/A × S/C × P/X）の組み合わせによる16タイプ。各タイプに動物モチーフを割り当て。</p>
+    <div class="type-grid" id="type-grid"></div>
+  </div>
+
+  <!-- ============ QUESTIONS ============ -->
+  <div class="section" id="sec-questions">
+    <h2>QUESTIONS (20)</h2>
+    <p style="font-size:13px;color:#7a7a7a;margin-bottom:24px;">5セクション・20問。スペクトラム / 複数選択 / 単一選択 / 自由記述の4タイプ。</p>
+    <div id="questions-list"></div>
+  </div>
+
+  <!-- ============ SCORING ============ -->
+  <div class="section" id="sec-scoring">
+    <h2>SCORING ALGORITHM</h2>
+
+    <h3>4軸スコア計算</h3>
+    <p style="font-size:13px;color:#7a7a7a;margin-bottom:16px;">各軸: <code>spectrum × 0.5〜0.6</code> + <code>behavioral × 0.4〜0.5</code> → 0〜100</p>
+    <table class="scoring-table">
+      <tr><th>軸</th><th>スペクトラム重み</th><th>行動質問重み</th><th>スコア範囲</th></tr>
+      <tr><td>思考スタイル (D/T)</td><td>0.6</td><td>0.4</td><td>0=集中 → 100=対話</td></tr>
+      <tr><td>情報処理 (B/A)</td><td>0.6</td><td>0.4</td><td>0=具体 → 100=抽象</td></tr>
+      <tr><td>リスク姿勢 (S/C)</td><td>0.55</td><td>0.45</td><td>0=安定 → 100=挑戦</td></tr>
+      <tr><td>作業様式 (P/X)</td><td>0.55</td><td>0.45</td><td>0=計画 → 100=探索</td></tr>
+      <tr><td>協働 (補助)</td><td>0.5</td><td>0.5</td><td>0=技術重視 → 100=共感重視</td></tr>
+      <tr><td>学習 (補助)</td><td>0.6</td><td>0.4</td><td>0=深掘り → 100=幅広</td></tr>
+    </table>
+
+    <h3 style="margin-top:32px;">タイプコード生成</h3>
+    <table class="scoring-table">
+      <tr><th>軸</th><th>スコア < 50</th><th>スコア ≥ 50</th></tr>
+      <tr><td>思考スタイル</td><td><code>D</code> (Deep Focus)</td><td><code>T</code> (Talk-through)</td></tr>
+      <tr><td>情報処理</td><td><code>B</code> (Builder)</td><td><code>A</code> (Architect)</td></tr>
+      <tr><td>リスク姿勢</td><td><code>S</code> (Steady)</td><td><code>C</code> (Challenger)</td></tr>
+      <tr><td>作業様式</td><td><code>P</code> (Planner)</td><td><code>X</code> (eXplorer)</td></tr>
+    </table>
+
+    <h3 style="margin-top:32px;">シナリオ補正 (±3〜5)</h3>
+    <table class="scoring-table">
+      <tr><th>シナリオ1（設計判断）</th><th>補正</th></tr>
+      <tr><td>a: データ重視</td><td>抽象+3, 計画-3</td></tr>
+      <tr><td>b: PoC作成</td><td>探索+5, 挑戦+3</td></tr>
+      <tr><td>c: 傾聴・まとめ</td><td>対話+5</td></tr>
+      <tr><td>d: リーダー判断提案</td><td>計画-3</td></tr>
+    </table>
+    <table class="scoring-table" style="margin-top:16px;">
+      <tr><th>シナリオ2（障害対応）</th><th>補正</th></tr>
+      <tr><td>a: モニタリング</td><td>抽象+3</td></tr>
+      <tr><td>b: ロールバック</td><td>安定-5, 計画-3</td></tr>
+      <tr><td>c: チーム共有</td><td>対話+5</td></tr>
+      <tr><td>d: ステークホルダー報告</td><td>抽象+3</td></tr>
+    </table>
+
+    <h3 style="margin-top:32px;">バンド判定</h3>
+    <table class="scoring-table">
+      <tr><th>スコア</th><th>バンド</th><th>使用先</th></tr>
+      <tr><td>0 〜 34</td><td><code>low</code></td><td>各軸の「左寄り」インサイト</td></tr>
+      <tr><td>35 〜 64</td><td><code>mid</code></td><td>バランス型のインサイト</td></tr>
+      <tr><td>65 〜 100</td><td><code>high</code></td><td>各軸の「右寄り」インサイト</td></tr>
+    </table>
+  </div>
+
+  <!-- ============ BIG FIVE ============ -->
+  <div class="section" id="sec-bigfive">
+    <h2>BIG FIVE CORRESPONDENCE</h2>
+    <p style="font-size:13px;color:#7a7a7a;margin-bottom:24px;">IPIP（International Personality Item Pool）を参考に、ビッグファイブの5因子をエンジニア文脈の4軸+2補助に対応付け。</p>
+    <div class="bf-grid">
+      <div class="bf-card">
+        <div class="bf-factor">EXTRAVERSION（外向性）</div>
+        <div class="bf-axis">→ 思考スタイル軸 (D/T)</div>
+        <div class="bf-range"><span class="bf-low">← Deep Focus（内向・集中）</span><span class="bf-high">Talk-through（外向・対話）→</span></div>
+        <div class="bf-desc">外向性が低い人は一人で深く考えることを好み、高い人は対話を通じて思考を整理する傾向がある。IPIPの「社交性」「積極性」因子に対応。</div>
+      </div>
+      <div class="bf-card">
+        <div class="bf-factor">OPENNESS TO EXPERIENCE（開放性）</div>
+        <div class="bf-axis">→ 情報処理軸 (B/A)</div>
+        <div class="bf-range"><span class="bf-low">← Builder（具体・実装）</span><span class="bf-high">Architect（抽象・設計）→</span></div>
+        <div class="bf-desc">開放性が低い人は具体的・実践的なアプローチを好み、高い人は抽象的概念やアーキテクチャ思考を好む。IPIPの「知的好奇心」「想像力」因子に対応。</div>
+      </div>
+      <div class="bf-card">
+        <div class="bf-factor">EMOTIONAL STABILITY + OPENNESS</div>
+        <div class="bf-axis">→ リスク姿勢軸 (S/C)</div>
+        <div class="bf-range"><span class="bf-low">← Steady（安定・慎重）</span><span class="bf-high">Challenger（挑戦・革新）→</span></div>
+        <div class="bf-desc">情緒安定性が高く開放性が低い人は安定を重視し、逆の組み合わせは新しい挑戦を好む。技術選定やデプロイ判断に特に表れる。</div>
+      </div>
+      <div class="bf-card">
+        <div class="bf-factor">CONSCIENTIOUSNESS（誠実性）</div>
+        <div class="bf-axis">→ 作業様式軸 (P/X)</div>
+        <div class="bf-range"><span class="bf-low">← Planner（計画・体系）</span><span class="bf-high">eXplorer（探索・即興）→</span></div>
+        <div class="bf-desc">誠実性が高い人は計画を立て体系的に進めることを好み、低い人は柔軟に探索しながら進める。IPIPの「秩序性」「自己規律」因子に対応。</div>
+      </div>
+      <div class="bf-card">
+        <div class="bf-factor">AGREEABLENESS（協調性）</div>
+        <div class="bf-axis">→ 協働スコア（補助）</div>
+        <div class="bf-range"><span class="bf-low">← 技術的正しさ重視</span><span class="bf-high">共感・関係性重視 →</span></div>
+        <div class="bf-desc">コードレビューやチーム内議論での姿勢に表れる。タイプコードには含まれず、補助スコアとして記録。</div>
+      </div>
+      <div class="bf-card">
+        <div class="bf-factor">OPENNESS（開放性の別側面）</div>
+        <div class="bf-axis">→ 学習スコア（補助）</div>
+        <div class="bf-range"><span class="bf-low">← Specialist（深掘り）</span><span class="bf-high">Generalist（幅広）→</span></div>
+        <div class="bf-desc">技術習得の方向性。深さ vs 広さの志向を測定。タイプコードには含まれず、補助スコアとして記録。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Data ──
+const TYPES = {
+  DBSP: { name: "堅実な職人型", animal: "ビーバー", d:"集中", b:"具体", s:"安定", p:"計画" },
+  DBSX: { name: "実験的クラフター", animal: "アライグマ", d:"集中", b:"具体", s:"安定", p:"探索" },
+  DBCP: { name: "戦略的アーキテクト", animal: "蜘蛛", d:"集中", b:"具体", s:"挑戦", p:"計画" },
+  DBCX: { name: "探究するイノベーター", animal: "タコ", d:"集中", b:"具体", s:"挑戦", p:"探索" },
+  DASP: { name: "理論派プランナー", animal: "フクロウ", d:"集中", b:"抽象", s:"安定", p:"計画" },
+  DASX: { name: "柔軟な理論家", animal: "猫", d:"集中", b:"抽象", s:"安定", p:"探索" },
+  DACP: { name: "ビジョナリー設計者", animal: "鷲", d:"集中", b:"抽象", s:"挑戦", p:"計画" },
+  DACX: { name: "先駆的リサーチャー", animal: "イルカ", d:"集中", b:"抽象", s:"挑戦", p:"探索" },
+  TBSP: { name: "チーム志向の実務家", animal: "犬", d:"対話", b:"具体", s:"安定", p:"計画" },
+  TBSX: { name: "アジャイルプレイヤー", animal: "猿", d:"対話", b:"具体", s:"安定", p:"探索" },
+  TBCP: { name: "推進力のあるリーダー", animal: "ライオン", d:"対話", b:"具体", s:"挑戦", p:"計画" },
+  TBCX: { name: "共創型イノベーター", animal: "オウム", d:"対話", b:"具体", s:"挑戦", p:"探索" },
+  TASP: { name: "対話で深める思考家", animal: "象", d:"対話", b:"抽象", s:"安定", p:"計画" },
+  TASX: { name: "越境するファシリテーター", animal: "狐", d:"対話", b:"抽象", s:"安定", p:"探索" },
+  TACP: { name: "構想力のある導き手", animal: "鯨", d:"対話", b:"抽象", s:"挑戦", p:"計画" },
+  TACX: { name: "変革を楽しむ開拓者", animal: "不死鳥", d:"対話", b:"抽象", s:"挑戦", p:"探索" },
+};
+
+const QUESTIONS = [
+  { id:"s1_focus", section:"思考スタイル", sectionDesc:"あなたの自然な思考・作業の傾向を探ります", type:"spectrum", question:"難しい技術課題に直面したとき、最初にどうしますか？", left:"一人で静かに考え抜く", right:"誰かと話しながら整理する", axis:"focus_dialogue" },
+  { id:"s1_focus_mc", section:"思考スタイル", type:"multi_choice", question:"技術的に行き詰まったとき、最初の30分でやりがちなことは？", axis:"focus_dialogue", options:["エラーメッセージやログをじっくり読む","関連するドキュメントや過去のissueを検索する","同僚やチームメンバーに声をかける","最小限の再現コードを書いて切り分ける","一旦離れて頭を切り替える","ChatGPT等のAIツールに聞く"] },
+  { id:"s1_abstract", section:"思考スタイル", type:"spectrum", question:"新しい技術やフレームワークを学ぶとき、どちらから入りますか？", left:"チュートリアルで手を動かす", right:"アーキテクチャ図や概念から理解する", axis:"concrete_abstract" },
+  { id:"s1_abstract_mc", section:"思考スタイル", type:"multi_choice", question:"新しい技術を学ぶとき、最も頼りにする情報源は？", axis:"concrete_abstract", options:["公式ドキュメント","ハンズオン / チュートリアル","GitHubの実装例やOSSのコード","技術ブログ / Zenn / Qiita等の記事","動画（YouTube / Udemy等）","書籍"] },
+  { id:"s2_risk", section:"意思決定", sectionDesc:"技術的な判断や意思決定のスタイルを探ります", type:"spectrum", question:"本番環境への変更が必要なとき、あなたの傾向は？", left:"十分な検証を重ね慎重に進める", right:"最小限の変更を素早くデプロイする", axis:"conservative_adventurous" },
+  { id:"s2_risk_mc", section:"意思決定", type:"single_choice", question:"技術選定で最も重視するのは？", axis:"conservative_adventurous", options:["実績と安定性（枯れた技術を選ぶ）","チームの習熟度（学習コストの低さ）","将来性と拡張性（新しくても有望なら採用）","課題への最適性（要件にベストフィットするもの）"] },
+  { id:"s2_plan", section:"意思決定", type:"spectrum", question:"仕様が曖昧なプロジェクトの進め方は？", left:"まず全体設計を固めてから実装", right:"プロトタイプを作りながら設計を発見", axis:"planning_exploration" },
+  { id:"s2_plan_mc", section:"意思決定", type:"single_choice", question:"「正解がわからない」状態のとき、まず何をする？", axis:"planning_exploration", options:["既存事例や先行研究をリサーチする","最もリスクの高い部分からPoCを作る","ステークホルダーに要件を詳しくヒアリングする","複数案を並べてチームで議論する"] },
+  { id:"s3_quality_mc", section:"技術的価値観", sectionDesc:"あなたが技術者として大切にしていることの深層に迫ります", type:"multi_choice", question:"「良いコード」の条件として重視する要素は？", axis:"tech_values", options:["読みやすさ・意図の明確さ","テストのしやすさ","パフォーマンス・効率性","変更しやすさ・拡張性","シンプルさ・最小限の実装","堅牢性・エラーハンドリング"] },
+  { id:"s3_debug_mc", section:"技術的価値観", type:"single_choice", question:"バグの原因を特定するとき、最も自分らしいアプローチは？", axis:"tech_depth", options:["まず再現手順を確立し、条件を絞り込む","ログやメトリクスを追加して観測する","仮説を立てて、コードリーディングで検証する","二分探索的に変更を切り戻して原因箇所を特定する"] },
+  { id:"s3_tradeoff_mc", section:"技術的価値観", type:"single_choice", question:"納期が迫っている中での技術的トレードオフ。あなたの判断に最も近いのは？", axis:"tech_depth", options:["品質を守る。後で負債を返す方がコストが高い","スコープを削る。機能を減らしてでも品質は保つ","まず出す。動くものを出してからリファクタリングする","相談する。チームやPMと優先順位を再交渉する"] },
+  { id:"s3_passion", section:"技術的価値観", type:"freetext", question:"技術者として、あなたが最もこだわっていること・譲れないことは何ですか？", axis:"tech_values" },
+  { id:"s4_collab", section:"協働と成長", sectionDesc:"チームでの働き方と成長への姿勢を探ります", type:"spectrum", question:"コードレビューで意見が対立したとき、あなたの傾向は？", left:"技術的正しさを丁寧に説明する", right:"相手の文脈を理解してから議論する", axis:"collaboration" },
+  { id:"s4_collab_mc", section:"協働と成長", type:"multi_choice", question:"コードレビューで特に意識していることは？", axis:"collaboration", options:["なぜそう書いたかの意図を理解する","バグや潜在的リスクを見つける","良い点を積極的にコメントする","チームの規約・一貫性を守る","パフォーマンスやセキュリティを確認する"] },
+  { id:"s4_learn", section:"協働と成長", type:"spectrum", question:"新しいスキルの習得について、あなたの傾向は？", left:"深く一つの領域を極める", right:"幅広く多くの技術に触れる", axis:"learning" },
+  { id:"s4_learn_mc", section:"協働と成長", type:"single_choice", question:"直近1年で最も成長を実感した場面に近いのは？", axis:"learning", options:["難しいバグや障害を乗り越えたとき","新しい技術やツールを業務で使えたとき","設計やアーキテクチャを任されたとき","後輩やメンバーに教える・導く場面"] },
+  { id:"s5_scenario1", section:"シナリオ判断", sectionDesc:"実際の業務シーンに近い状況での判断を見ます", type:"single_choice", question:"チームで意見が割れている設計判断。あなたはどうする？", axis:"scenario_cross", options:["データや根拠を集めて客観的に比較資料を作る","小さなPoCを2パターン作って実際に比較する","それぞれの案の支持者の意見を丁寧に聞いてまとめる","期限を決めて、最終的にはリーダーが判断すべきと提案する"] },
+  { id:"s5_scenario2", section:"シナリオ判断", type:"single_choice", question:"本番で想定外のパフォーマンス劣化が発覚。まず何をする？", axis:"scenario_cross", options:["まずモニタリングツールでボトルネックを特定する","直近のデプロイをロールバックして影響を止める","チームに状況を共有し、分担して調査する","ユーザー影響の範囲を確認し、ステークホルダーに報告する"] },
+  { id:"s4_freetext", section:"シナリオ判断", type:"freetext", question:"チーム開発で印象に残っているエピソードを一つ教えてください。", axis:"collaboration" },
+];
+
+// ── Render Types ──
+const grid = document.getElementById('type-grid');
+Object.entries(TYPES).forEach(([code, t]) => {
+  grid.innerHTML += `
+    <div class="type-card">
+      <img src="/characters/${code}.svg" alt="${t.name}">
+      <div class="type-code">${code}</div>
+      <div class="type-name">${t.name}</div>
+      <div class="type-axes">${t.animal}</div>
+      <div class="axis-detail">
+        <div class="axis-row"><span class="axis-label">思考</span><span class="axis-value">${t.d}</span></div>
+        <div class="axis-row"><span class="axis-label">情報</span><span class="axis-value">${t.b}</span></div>
+        <div class="axis-row"><span class="axis-label">リスク</span><span class="axis-value">${t.s}</span></div>
+        <div class="axis-row"><span class="axis-label">様式</span><span class="axis-value">${t.p}</span></div>
+      </div>
+    </div>`;
+});
+
+// ── Render Questions ──
+const qList = document.getElementById('questions-list');
+let currentSection = '';
+QUESTIONS.forEach((q, i) => {
+  if (q.section !== currentSection) {
+    currentSection = q.section;
+    qList.innerHTML += `<div class="q-section"><div class="q-section-title">${q.section}</div>${q.sectionDesc ? `<div class="q-section-desc">${q.sectionDesc}</div>` : ''}</div>`;
+  }
+  const typeLabel = { spectrum:'スペクトラム', multi_choice:'複数選択', single_choice:'単一選択', freetext:'自由記述' }[q.type];
+  let body = '';
+  if (q.type === 'spectrum') {
+    body = `<div class="q-labels"><span>← ${q.left}</span><span>${q.right} →</span></div>`;
+  } else if (q.options) {
+    body = q.options.map(o => `<div class="q-option">${typeof o === 'string' ? o : o.label}</div>`).join('');
+  } else if (q.type === 'freetext') {
+    body = '<div style="color:#5a5a5a;font-size:12px;font-style:italic;">自由記述（30文字以上）</div>';
+  }
+  qList.innerHTML += `
+    <div class="q-card">
+      <div class="q-id">#${i+1} ${q.id} <span class="q-type">${typeLabel}</span><span class="q-axis">${q.axis}</span></div>
+      <div class="q-text">${q.question}</div>
+      ${body}
+    </div>`;
+});
+
+// ── Tab Navigation ──
+document.querySelectorAll('.nav a').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelectorAll('.nav a').forEach(x => x.classList.remove('active'));
+    document.querySelectorAll('.section').forEach(x => x.classList.remove('active'));
+    a.classList.add('active');
+    document.getElementById('sec-' + a.dataset.tab).classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
