@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <defs>
+    <radialGradient id="bg_DASP" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#5D4E3722"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </radialGradient>
+  </defs>
+  <rect width="160" height="160" rx="20" fill="url(#bg_DASP)"/>
+  <g><ellipse cx="80" cy="62" rx="24" ry="26" fill="#5D4E37"/>
+      <circle cx="70" cy="52" r="10" fill="#fff"/><circle cx="90" cy="52" r="10" fill="#fff"/>
+      <circle cx="71" cy="52" r="5" fill="#C4A882"/><circle cx="91" cy="52" r="5" fill="#C4A882"/>
+      <circle cx="71" cy="52" r="2.5" fill="#0a0a0a"/><circle cx="91" cy="52" r="2.5" fill="#0a0a0a"/>
+      <polygon points="80,58 77,64 83,64" fill="#C4A882"/>
+      <polygon points="60,38 70,48 58,50" fill="#5D4E37"/><polygon points="100,38 90,48 102,50" fill="#5D4E37"/></g>
+  <text x="80" y="108" text-anchor="middle" font-family="'DM Mono', monospace" font-size="14" font-weight="500" fill="#e8c547" letter-spacing="2">DASP</text>
+  <text x="80" y="126" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="9" fill="#e0e0e0">理論派プランナー</text>
+  <text x="80" y="142" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="8" fill="#7a7a7a">フクロウ — 静かな知恵</text>
+</svg>

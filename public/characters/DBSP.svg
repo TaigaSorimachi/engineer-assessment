@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <defs>
+    <radialGradient id="bg_DBSP" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#8B735522"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </radialGradient>
+  </defs>
+  <rect width="160" height="160" rx="20" fill="url(#bg_DBSP)"/>
+  <g><circle cx="80" cy="62" r="28" fill="#8B7355"/>
+      <ellipse cx="80" cy="55" rx="20" ry="16" fill="#D2B48C"/>
+      <circle cx="72" cy="50" r="3.5" fill="#0a0a0a"/><circle cx="88" cy="50" r="3.5" fill="#0a0a0a"/>
+      <ellipse cx="80" cy="58" rx="5" ry="3" fill="#0a0a0a"/>
+      <rect x="76" y="61" width="3" height="5" rx="1" fill="#fff"/><rect x="81" y="61" width="3" height="5" rx="1" fill="#fff"/>
+      <ellipse cx="56" cy="75" rx="12" ry="6" fill="#8B7355" transform="rotate(-20 56 75)"/></g>
+  <text x="80" y="108" text-anchor="middle" font-family="'DM Mono', monospace" font-size="14" font-weight="500" fill="#e8c547" letter-spacing="2">DBSP</text>
+  <text x="80" y="126" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="9" fill="#e0e0e0">堅実な職人型</text>
+  <text x="80" y="142" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="8" fill="#7a7a7a">ビーバー — コツコツ積み上げる</text>
+</svg>

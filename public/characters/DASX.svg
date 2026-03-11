@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <defs>
+    <radialGradient id="bg_DASX" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#7B68EE22"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </radialGradient>
+  </defs>
+  <rect width="160" height="160" rx="20" fill="url(#bg_DASX)"/>
+  <g><ellipse cx="80" cy="65" rx="22" ry="22" fill="#7B68EE"/>
+      <polygon points="62,42 58,18 76,38" fill="#7B68EE"/><polygon points="98,42 102,18 84,38" fill="#7B68EE"/>
+      <polygon points="64,40 60,22 74,36" fill="#B8A9F0"/><polygon points="96,40 100,22 86,36" fill="#B8A9F0"/>
+      <ellipse cx="71" cy="58" rx="4" ry="5" fill="#B8A9F0"/><ellipse cx="89" cy="58" rx="4" ry="5" fill="#B8A9F0"/>
+      <circle cx="71" cy="57" r="2" fill="#0a0a0a"/><circle cx="89" cy="57" r="2" fill="#0a0a0a"/>
+      <ellipse cx="80" cy="65" rx="3" ry="2" fill="#FFB6C1"/>
+      <line x1="50" y1="60" x2="66" y2="62" stroke="#B8A9F0" stroke-width="1"/><line x1="50" y1="66" x2="66" y2="65" stroke="#B8A9F0" stroke-width="1"/>
+      <line x1="110" y1="60" x2="94" y2="62" stroke="#B8A9F0" stroke-width="1"/><line x1="110" y1="66" x2="94" y2="65" stroke="#B8A9F0" stroke-width="1"/></g>
+  <text x="80" y="108" text-anchor="middle" font-family="'DM Mono', monospace" font-size="14" font-weight="500" fill="#e8c547" letter-spacing="2">DASX</text>
+  <text x="80" y="126" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="9" fill="#e0e0e0">柔軟な理論家</text>
+  <text x="80" y="142" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="8" fill="#7a7a7a">猫 — 気まぐれな洞察</text>
+</svg>

@@ -27,7 +27,16 @@ export default function ResultsScreen({ result, scores, userName, userEmail, she
           <div style={{ fontFamily: C.fontMono, fontSize: 11, color: C.gold, letterSpacing: 6, marginBottom: 20 }}>ASSESSMENT RESULT</div>
           <h1 style={{ fontFamily: C.fontDisplay, fontSize: 40, fontWeight: 600, color: "#f0f0f0", marginBottom: 12 }}>プロファイル分析結果</h1>
           <p style={{ fontFamily: C.fontBody, fontSize: 14, color: C.textMuted, marginBottom: 24 }}>{userName} さん（{userEmail}）</p>
-          {result.type_code && <TypeBadge label={result.type_code} description={result.type_name || ""} />}
+          {result.type_code && (
+            <>
+              <img
+                src={`/characters/${result.type_code}.svg`}
+                alt={result.type_name || result.type_code}
+                style={{ width: 160, height: 160, margin: "0 auto 20px", display: "block", filter: "drop-shadow(0 0 24px #e8c54722)" }}
+              />
+              <TypeBadge label={result.type_code} description={result.type_name || ""} />
+            </>
+          )}
         </div>
 
         {/* Summary */}

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <defs>
+    <radialGradient id="bg_TBSP" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#D4A01722"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </radialGradient>
+  </defs>
+  <rect width="160" height="160" rx="20" fill="url(#bg_TBSP)"/>
+  <g><ellipse cx="80" cy="62" rx="24" ry="24" fill="#D4A017"/>
+      <ellipse cx="80" cy="60" rx="16" ry="12" fill="#F4D03F"/>
+      <circle cx="72" cy="54" r="4" fill="#fff"/><circle cx="88" cy="54" r="4" fill="#fff"/>
+      <circle cx="73" cy="54" r="2" fill="#0a0a0a"/><circle cx="89" cy="54" r="2" fill="#0a0a0a"/>
+      <ellipse cx="80" cy="64" rx="5" ry="3.5" fill="#333"/>
+      <path d="M75 70 Q80 76 85 70" stroke="#E74C3C" stroke-width="2" fill="#E74C3C" opacity="0.6"/>
+      <ellipse cx="58" cy="44" rx="10" ry="14" fill="#D4A017" transform="rotate(-15 58 44)"/>
+      <ellipse cx="102" cy="44" rx="10" ry="14" fill="#D4A017" transform="rotate(15 102 44)"/></g>
+  <text x="80" y="108" text-anchor="middle" font-family="'DM Mono', monospace" font-size="14" font-weight="500" fill="#e8c547" letter-spacing="2">TBSP</text>
+  <text x="80" y="126" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="9" fill="#e0e0e0">チーム志向の実務家</text>
+  <text x="80" y="142" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="8" fill="#7a7a7a">犬 — 忠実な仲間</text>
+</svg>

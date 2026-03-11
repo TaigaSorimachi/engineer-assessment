@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <defs>
+    <radialGradient id="bg_TBCX" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#27AE6022"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </radialGradient>
+  </defs>
+  <rect width="160" height="160" rx="20" fill="url(#bg_TBCX)"/>
+  <g><ellipse cx="80" cy="60" rx="20" ry="24" fill="#27AE60"/>
+      <ellipse cx="80" cy="54" rx="14" ry="12" fill="#58D68D"/>
+      <circle cx="74" cy="50" r="4" fill="#fff"/><circle cx="86" cy="50" r="4" fill="#fff"/>
+      <circle cx="74" cy="50" r="2" fill="#0a0a0a"/><circle cx="86" cy="50" r="2" fill="#0a0a0a"/>
+      <path d="M80 56 L76 62 L84 62 Z" fill="#F39C12"/>
+      <path d="M76 62 L80 66 L84 62" fill="#E67E22"/>
+      <path d="M64 40 Q56 30 60 44" fill="#E74C3C"/><path d="M68 36 Q62 26 64 40" fill="#3498DB"/><path d="M72 34 Q68 24 70 38" fill="#F1C40F"/>
+      <path d="M96 40 Q104 30 100 44" fill="#E74C3C"/><path d="M92 36 Q98 26 96 40" fill="#3498DB"/></g>
+  <text x="80" y="108" text-anchor="middle" font-family="'DM Mono', monospace" font-size="14" font-weight="500" fill="#e8c547" letter-spacing="2">TBCX</text>
+  <text x="80" y="126" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="9" fill="#e0e0e0">共創型イノベーター</text>
+  <text x="80" y="142" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="8" fill="#7a7a7a">オウム — 色鮮やかな共創</text>
+</svg>

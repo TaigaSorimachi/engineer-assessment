@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <defs>
+    <radialGradient id="bg_DBSX" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#70809022"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </radialGradient>
+  </defs>
+  <rect width="160" height="160" rx="20" fill="url(#bg_DBSX)"/>
+  <g><circle cx="80" cy="62" r="28" fill="#708090"/>
+      <ellipse cx="80" cy="58" rx="18" ry="14" fill="#B0C4DE"/>
+      <ellipse cx="70" cy="52" rx="8" ry="6" fill="#333"/><ellipse cx="90" cy="52" rx="8" ry="6" fill="#333"/>
+      <circle cx="72" cy="52" r="3" fill="#fff"/><circle cx="88" cy="52" r="3" fill="#fff"/>
+      <circle cx="72" cy="52" r="1.5" fill="#0a0a0a"/><circle cx="88" cy="52" r="1.5" fill="#0a0a0a"/>
+      <ellipse cx="80" cy="60" rx="4" ry="2.5" fill="#333"/></g>
+  <text x="80" y="108" text-anchor="middle" font-family="'DM Mono', monospace" font-size="14" font-weight="500" fill="#e8c547" letter-spacing="2">DBSX</text>
+  <text x="80" y="126" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="9" fill="#e0e0e0">実験的クラフター</text>
+  <text x="80" y="142" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="8" fill="#7a7a7a">アライグマ — 器用に試す</text>
+</svg>

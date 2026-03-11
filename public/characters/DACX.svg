@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <defs>
+    <radialGradient id="bg_DACX" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1ABC9C22"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </radialGradient>
+  </defs>
+  <rect width="160" height="160" rx="20" fill="url(#bg_DACX)"/>
+  <g><ellipse cx="80" cy="60" rx="20" ry="24" fill="#1ABC9C"/>
+      <ellipse cx="80" cy="55" rx="14" ry="10" fill="#76D7C4"/>
+      <circle cx="74" cy="52" r="3" fill="#fff"/><circle cx="86" cy="52" r="3" fill="#fff"/>
+      <circle cx="74" cy="52" r="1.5" fill="#0a0a0a"/><circle cx="86" cy="52" r="1.5" fill="#0a0a0a"/>
+      <path d="M74 62 Q80 66 86 62" stroke="#fff" stroke-width="1.5" fill="none"/>
+      <path d="M80 36 Q82 24 90 28 Q84 32 82 38" fill="#1ABC9C"/>
+      <path d="M60 70 Q52 80 48 75" stroke="#1ABC9C" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M100 70 Q108 80 112 75" stroke="#1ABC9C" stroke-width="4" fill="none" stroke-linecap="round"/></g>
+  <text x="80" y="108" text-anchor="middle" font-family="'DM Mono', monospace" font-size="14" font-weight="500" fill="#e8c547" letter-spacing="2">DACX</text>
+  <text x="80" y="126" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="9" fill="#e0e0e0">先駆的リサーチャー</text>
+  <text x="80" y="142" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="8" fill="#7a7a7a">イルカ — 知的好奇心</text>
+</svg>
