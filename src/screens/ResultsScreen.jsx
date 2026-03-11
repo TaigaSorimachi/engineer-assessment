@@ -21,7 +21,7 @@ export default function ResultsScreen({ result, scores, userName, userEmail, she
 
   return (
     <div style={{ minHeight: "100vh", background: C.bg, padding: "40px 20px" }}>
-      <div style={{ maxWidth: 700, margin: "0 auto" }}>
+      <div id="result-capture-area" style={{ maxWidth: 700, margin: "0 auto" }}>
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: 48, animation: "fadeUp 0.8s ease" }}>
           <div style={{ fontFamily: C.fontMono, fontSize: 11, color: C.gold, letterSpacing: 6, marginBottom: 20 }}>ASSESSMENT RESULT</div>
@@ -118,7 +118,7 @@ export default function ResultsScreen({ result, scores, userName, userEmail, she
         <ScientificBasis />
 
         {/* Share */}
-        <ShareButtons typeCode={result.type_code} typeName={result.type_name} scores={scores} />
+        <ShareButtons result={result} scores={scores} userName={userName} />
 
         {/* GAS Status */}
         {hasGasUrl() && (
